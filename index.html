@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffffff"><meta name="description" content="[untitled] — unreleased music library.">
+<title>[untitled] — music in progress</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar">
+<div class="sidebar-top">
+<a class="brand" href="#library" aria-label="untitled home"><span class="brand-bracket">[</span>untitled<span class="brand-bracket">]</span></a>
+<button class="icon-btn sidebar-close-btn" id="sidebar-close" aria-label="Close sidebar"><span data-icon="close"></span></button>
+</div>
+<div class="workspace-label">Library</div>
+<nav aria-label="Main navigation">
+<button class="nav-item active" data-view="library"><span data-icon="library"></span><span>Albums</span><span class="nav-count" id="library-count">6</span></button>
+<button class="nav-item" data-view="tracks"><span data-icon="wave"></span><span>All tracks</span></button>
+<button class="nav-item" data-view="favorites"><span data-icon="heart"></span><span>Favorites</span></button>
+</nav>
+<div class="sidebar-section"><span>Projects</span><button class="icon-btn" id="sidebar-create" title="Create an album" aria-label="Create an album"><span data-icon="plus"></span></button></div>
+<div id="collection-list"></div>
+<div class="sidebar-bottom">
+<button class="profile" id="settings-btn"><span data-icon="settings"></span><span>Settings</span></button>
+</div>
+</aside>
+<div class="main-shell">
+<header class="topbar">
+<div class="topbar-left">
+<button class="icon-btn mobile-menu" id="mobile-menu" aria-label="Toggle menu" title="Toggle menu"><span data-icon="menu"></span></button>
+<a class="topbar-brand" href="#library" aria-label="untitled home"><span class="brand-bracket">[</span>untitled<span class="brand-bracket">]</span></a>
+<div class="breadcrumb" id="breadcrumb">Library <span>/</span> Albums</div>
+</div>
+<div class="topbar-right">
+<button class="icon-btn topbar-btn" id="share-link-top" aria-label="Copy share link" title="Copy share link"><span data-icon="link"></span></button>
+<button class="icon-btn topbar-btn" id="notifications-top" aria-label="Notifications" title="Notifications"><span data-icon="bell"></span></button>
+<button class="icon-btn topbar-btn" id="search-top-btn" aria-label="Search" title="Search"><span data-icon="search"></span></button>
+<button class="icon-btn topbar-btn" id="profile-top" aria-label="Settings" title="Settings"><span data-icon="settings"></span></button>
+</div>
+</header>
+<main id="main"></main>
+</div>
+</div>
+<section class="player" aria-label="Audio player">
+<div class="now-playing">
+<div id="player-art" class="player-art"></div>
+<div class="now-text">
+<strong id="player-title">Nothing playing</strong>
+<small id="player-album">Select a track</small>
+</div>
+<button id="player-favorite" class="icon-btn" aria-label="Favorite current track" disabled><span data-icon="heart"></span></button>
+</div>
+<div class="player-center">
+<div class="transport">
+<button class="icon-btn" id="shuffle" title="Shuffle" aria-label="Shuffle"><span data-icon="shuffle"></span></button>
+<button class="icon-btn" id="previous" aria-label="Previous track"><span data-icon="previous"></span></button>
+<button class="play-main" id="play-pause" aria-label="Play"><span data-icon="play"></span></button>
+<button class="icon-btn" id="next" aria-label="Next track"><span data-icon="next"></span></button>
+<button class="icon-btn" id="repeat" title="Repeat track" aria-label="Repeat track"><span data-icon="repeat"></span></button>
+</div>
+<div class="timeline">
+<span id="elapsed">0:00</span>
+<input id="seek" type="range" min="0" max="1000" value="0" aria-label="Playback position">
+<span id="total-time">0:00</span>
+</div>
+</div>
+<div class="player-right">
+<button class="icon-btn" id="queue-btn" title="Play queue" aria-label="Show play queue"><span data-icon="queue"></span></button>
+<span class="player-divider"></span>
+<button class="icon-btn" id="mute" aria-label="Mute"><span data-icon="volume"></span></button>
+<input id="volume" type="range" min="0" max="1" value="0.7" step="0.01" aria-label="Volume">
+</div>
+</section>
+<audio id="audio" preload="metadata"></audio>
+<dialog id="modal"><div id="modal-content"></div></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+<div id="drop-overlay"><span data-icon="upload"></span><h2>Add audio files</h2><p>Drop files to upload tracks.</p></div>
+<input type="file" id="audio-input" accept="audio/*,.mp3,.wav,.m4a,.aac,.ogg,.flac,.aif,.aiff,.opus,.webm" multiple hidden>
+<input type="file" id="cover-input" accept="image/*" hidden>
+<input type="file" id="import-input" accept=".still,.json" hidden>
+<script src="/src/main.jsx" type="module"></script>
+</body></html>

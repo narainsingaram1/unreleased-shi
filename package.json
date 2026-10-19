@@ -1,0 +1,32 @@
+{
+  "name": "still-music-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A minimal music library",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 3000",
+    "start": "vite --host 127.0.0.1 --port 3000",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 3000",
+    "check": "node --check app.js && node --check server.mjs && node --test tests/core.test.mjs && vite build",
+    "test:ui": "playwright test"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "html-react-parser": "^6.1.8",
+    "lucide-react": "^1.55.0",
+    "radix-ui": "^1.7.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tailwind-merge": "^3.7.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@vitejs/plugin-react": "^6.1.2",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.3.4"
+  },
+  "type": "module"
+}
